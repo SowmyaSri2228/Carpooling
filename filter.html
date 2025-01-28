@@ -1,0 +1,103 @@
+<html>
+<head><title>Filter page</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<link  rel="stylesheet" href="style.css">
+<style>
+body{
+font-family:Verdana,Arial;
+margin:10px;
+background-color:rgba(60,60,60,0.5)
+}
+label{
+    font-weight:bold;
+    margin-bottom:8px;
+}
+button{
+    width:100%;
+    padding:12px;
+    margin-bottom:20px;
+    border:2px solid violet;
+    background-color:powder blue;
+    border-radius:4px;
+    cursor:pointer;
+}
+button:hover{
+    background-color:red;
+}
+button:active{
+    background-color:green;
+}
+ul li:nth-child(even){
+    background-color:#f1f1f1;
+}
+</style>
+</head>
+<body>
+<label for="mincharge">Minium Charge:</label>
+<input type="text" id="minCharge" placeholder="Enter the minimum charge!">
+<label for="maxCharge">Max Charge:</label>
+<input type="text" id="maxCharge" placeholder="Enter the maximum charge!">
+<button onclick="filterDrivers()">filterbycharge</button><br>
+
+<select id="vehicleInput">
+<option value="">--Select vehicle type--</option>
+<option value="car">Car</option>
+<option value="auto">Auto</option>
+<option value="bike">Bike</option>
+</select>
+<button  onclick="filterDrivers()">filterbyvehicle</button><br>
+<ul id="drivers">
+<li data-charge="1200" data-vehicle="car">driver1-1200</li>
+<li data-charge="300" data-vehicle="auto">driver2-300</li>
+<li data-charge="400" data-vehicle="car">driver3-400</li>
+<li data-charge="1200" data-vehicle="bike">driver4-1200</li>
+<li data-charge="500" data-vehicle="bike">driver5-500</li>
+<li data-charge="600" data-vehicle="car">driver6-600</li>
+<li data-charge="500" data-vehicle="car">driver7-500</li>
+<li data-charge="1200" data-vehicle="auto">drive8-1200</li>
+
+</ul>
+<script>
+
+function filterDrivers() {
+  const minCharge=parseFloat(document.getElementById('minCharge').value.trim());
+  const maxCharge=parseFloat(document.getElementById('maxCharge').value.trim()); 
+  const vehicleInput = document.getElementById('vehicleInput').value.trim().toLowerCase();
+  const driverList = document.getElementById('drivers');
+  const drivers = driverList.getElementsByTagName('li');
+  let chargeMatchFound=false;
+  let filteredDrivers=0;
+  for (let i = 0; i < drivers.length; i++) {
+    const driver = drivers[i];
+    const driveCharge = parseFloat(driver.getAttribute('data-charge'));
+    const vehicleType = driver.getAttribute('data-vehicle').toLowerCase();
+    let matches=true;
+    if(vehicleInput!=="" && !vehicleType.includes(vehicleInput)){
+        matches=false;
+      }
+     if ((!isNaN(minCharge) && driveCharge < minCharge) || (!isNaN(maxCharge) && driveCharge > maxCharge)) {
+      matches = false;
+    }
+    if(matches){
+        driver.style.display='';
+        filteredDrivers++;
+     }
+    else{
+        driver.style.display='none';
+     }
+  }
+  if(filteredDrivers===0 && !isNaN(minCharge)){
+      alert("No drivers found WIthin the charge range.Showing the drivers having chargesless than entered minimum charge");
+        for(let i=0;i<drivers.length;i++){
+            const driver=drivers[i];
+            const driveCharge=parseFloat(driver.getAttribute('data-charge'));
+            if(driveCharge<minCharge){
+                driver.style.display='';
+                }
+         }
+
+}
+}
+</script>
+</body>
+</html>
