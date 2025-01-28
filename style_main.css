@@ -1,0 +1,22 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: blue;
+}
+li{
+    display: inline;
+    text-decoration: none;
+    padding: 15px;
+}
+a{
+    text-decoration: none;
+    padding: 20px;
+}
+.logo img {
+    border-radius: 30px;
+}
