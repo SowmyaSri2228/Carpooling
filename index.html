@@ -8,22 +8,17 @@ body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
     color: #333;
-    background-image: url('https://wallpapercave.com/w/wp9029001.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    margin:0;
+    padding:0;
 }
 
 header {
     background:rgb(38,38,38);
     color:rgb(38,38,38);
-    position: sticky;
-    padding: 10px 20px;
-    z-index:500;
+    padding:10px 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-   
 }
 
 .logo a {
@@ -31,9 +26,7 @@ header {
     color: white;
     text-decoration: none;
     font-weight: bold;
-  
 }
-
 
 .navigation {
     display:flex;
@@ -49,117 +42,122 @@ header {
     color:rgb(187,187,187);
     text-decoration: none;
     font-size: 15px;
-   
 }
 .links li a:hover {
     color:rgb(255,255,255);
-   
 }
+
 .user-account {
     display: flex;
     align-items: center;
     gap: 15px;
-   
 }
-    footer {
-      color:rgb(255,255,255);
-      padding: 30px 0;
-      background-image: url('https://wallpapercave.com/w/wp11325348.jpg'); 
-      background-size: cover;
-      background-position: center;
-      
-      
-    }
-    .footer-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-    .footer-logo h3 {
-      font-size: 24px;
-      margin: 0;
-    }
-    .footer-logo p {
-      font-size: 14px;
-      color: #bbb;
-    }
-    .footer-links {
-      display: flex;
-      gap: 40px;
-    }
-    .footer-links div {
-      font-size: 14px;
-    }
-    .footer-links h4 {
-      font-size: 18px;
-      color: #fff;
-      margin-bottom: 10px;
-    }
-    .footer-links ul {
-      list-style-type: none;
-      padding: 0;
-    }
-    .footer-links a {
-      color: #bbb;
-      text-decoration: none;
-      display: block;
-      margin: 5px 0;
-    }
-    .footer-links a:hover {
-      color: #fff;
-    }
-    .footer-social {
-      display: flex;
-      gap: 20px;
-    }
-    .footer-social a {
-      color: #bbb;
-      text-decoration: none;
-    }
-    .footer-social img {
-      width: 30px;
-      height: 30px;
-    }
-    .footer-social a:hover img {
-      opacity: 0.8;
-    }
 
-    .twitter-icon-wrapper {
-      background-color: white;
-      border-radius: 50%; 
-      padding: 5px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .twitter-icon-wrapper img {
-      width: 20px;
-      height: 20px;
-    }
+footer {
+    color:rgb(255,255,255);
+    padding: 30px 0;
+    background-image: url('https://wallpapercave.com/w/wp11325348.jpg');
+    background-size: cover;
+    background-position: center;
+    position:relative;
+    z-index:1;
+}
 
-   .user-account img{
-     height:90px;
-     width:90px;
-     border-radius:50%;
-    }
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    padding:30px 0;
+    align-items: center;
+    max-width: 1200px;
+    margin-top:auto;
+}
 
-  .footer-baclground-text{
-    position:absolute;
-    top:50%;
-    left:100%;
-    font-size:150px;
-    font-weight:bold;
-    color:rgba(255,255,255,0.6);
-    white-space:nowrap;
-    }
- .container {
+.footer-logo h3 {
+    font-size: 24px;
+    margin: 0;
+}
+
+.footer-logo p {
+    font-size: 14px;
+    color: #bbb;
+}
+
+.footer-links {
+    display: flex;
+    gap: 40px;
+}
+
+.footer-links div {
+    font-size: 14px;
+}
+
+.footer-links h4 {
+    font-size: 18px;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.footer-links ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer-links a {
+    color: #bbb;
+    text-decoration: none;
+    display: block;
+    margin: 5px 0;
+}
+
+.footer-links a:hover {
+    color: #fff;
+}
+
+.footer-social {
+    display: flex;
+    gap: 20px;
+}
+
+.footer-social a {
+    color: #bbb;
+    text-decoration: none;
+}
+
+.footer-social img {
+    width: 30px;
+    height: 30px;
+}
+
+.footer-social a:hover img {
+    opacity: 0.8;
+}
+
+.twitter-icon-wrapper {
+    background-color: white;
+    border-radius: 50%;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.twitter-icon-wrapper img {
+    width: 20px;
+    height: 20px;
+}
+
+.user-account img{
+    height:90px;
+    width:90px;
+    border-radius:50%;
+}
+
+.container {
     width: 100%;
     overflow: hidden;
-    background-color: rgba(237, 227, 228, 0.8); 
+    background-color: rgba(237, 227, 228, 0.8);
     padding: 20px 0;
+    justify-content:felx-start;
 }
 
 .features {
@@ -197,7 +195,7 @@ header {
 }
 
 .option-box {
-    background-color: rgba(255, 255, 255, 0.9); 
+    background-color: rgba(255, 255, 255, 0.9);
     padding: 30px;
     width: 45%;
     border-radius: 8px;
@@ -241,31 +239,44 @@ p {
     color: white;
 }
 
+.image-container{
+    background-image: url('https://wallpapercave.com/w/wp9029001.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    min-height:100vh;
+    dispaly:flex;
+    flex-direction:column;
+    justify-content:flex-start;
+    
+}
+
 </style>
 </head>
 <body>
 <header>
 <div class="logo">
     <img src="https://raw.githubusercontent.com/SowmyaSri2228/Carpooling/Temporary/images/logo.png"  width="250" alt="icon">
-  
 </div>
 <div class="navigation">
+   <nav id="navigation-for-liks">
     <ul class="links">
         <li><a href="carpool.html">Home</a></li>
         <li><a href="howitworks.html">How-it-works</a></li>
-        <li><a href=features.html">Features</a></li>
+        <li><a href="features.html">Features</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="takearide.html">BookRide</a></li>
         <li><a href="offerride.html">OfferRide</a></li>
     </ul>
+</nav>
 </div>
 
 <div class="user-account">
    <img src="https://cdn-thumbs.imagevenue.com/db/66/38/ME19YZ3O_t.png" alt="CARLOGO.png"/>
 </div>
-
 </header>
 
+<div  class="image-container">
     <div class="container">
         <div class="features">
             <div class="feature">Ride posting and ride searching</div>
@@ -292,56 +303,52 @@ p {
             <a href="offer-ride.html" class="btn">Offer Ride Option</a>
         </div>
     </div>
+</div>
+
 <footer>
     <div class="footer-container">
-      
-      <div class="footer-logo">
-        <h3>RIDETIME</h3>
-        <p>Drive together, save time and reduce emissions.</p>
-      </div>
-
-      <div class="footer-links">
-        <div>
-          <h4>Quick Links</h4>
-          <ul>
-            <li><a href="/home">Home</a></li>
-            <li><a href="/about">About Us</a></li>
-            <li><a href="/contact">Contact</a></li>
-            <li><a href="/terms">Terms & Conditions</a></li>
-          </ul>
+        <div class="footer-logo">
+            <h3>RIDETIME</h3>
+            <p>Drive together, save time and reduce emissions.</p>
         </div>
-        <div>
-          <h4>Support</h4>
-          <ul>
-            <li><a href="/faq">FAQ</a></li>
-            <li><a href="/help">Help Center</a></li>
-            <li><a href="/privacy">Privacy Policy</a></li>
-          </ul>
-        </div>
-      </div>
-      
 
-      <div class="footer-social">
+        <div class="footer-links">
+            <div>
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="/home">Home</a></li>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                    <li><a href="/terms">Terms & Conditions</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="/faq">FAQ</a></li>
+                    <li><a href="/help">Help Center</a></li>
+                    <li><a href="/privacy">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-social">
         <a href="https://facebook.com" target="_blank">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook">
         </a>
         <a href="https://twitter.com" target="_blank">
             <div class="twitter-icon-wrapper">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/c/ce/X_logo_2023.svg" alt="Twitter">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/ce/X_logo_2023.svg" alt="Twitter">
             </div>
-          </a>
+        </a>
         <a href="https://instagram.com" target="_blank">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
         </a>
         <a href="https://linkedin.com" target="_blank">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/8/81/LinkedIn_icon.svg" alt="LinkedIn">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/8/81/LinkedIn_icon.svg" alt="LinkedIn">
         </a>
-      </div>
     </div>
-  
-  </footer>
+</footer>
 </body>
 </html>
-
-
-
