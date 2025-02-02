@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="signin.css">
+</head>
+<body>
+    <section>
+        <div class="loginBox">
+            <form action="">
+                <h2>Login</h2>
+                <div class="inputbox">
+                    <span class="icon">
+                        <ion-icon name="call"></ion-icon>
+                    </span>
+                    <input type="tel" required>
+                    <label>Mobile Number:</label>
+                </div>
+                <div class="inputbox">
+                    <span class="icon"><ion-icon name="lock"></ion-icon></span>
+                    <input type="password" id="password" required>
+                    <label for="password">Password:</label>
+                    <span class="eye-icon" onclick="togglePassword('password')">
+                        <ion-icon name="eye-off"></ion-icon>
+                    </span>
+                </div>
+                
+               
+
+                <div class="remember-forgot">
+                    <label>
+                        <span style="text-align: left;">Don't have an account? <a href="register.html"><strong>Register</strong>
+                        </a></span>
+                    </label>
+                </div>
+
+                <div class="remember-forgot">
+                    <label>
+                        <span style="text-align: left;">Login using email? <a href="signinEmail.html"><strong>Click here</strong></a></span>
+                    </label>
+                </div>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    </section>
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+    <script>
+
+        document.querySelector('form').onsubmit = function() {
+            return validateMobileNumber();
+        };        
+
+        function validateMobileNumber() {
+            const mobileNumberField = document.querySelector('input[type="tel"]');
+            const mobileNumber = mobileNumberField.value;
+
+            if (!/^\d{10}$/.test(mobileNumber)) {
+                mobileNumberField.style.borderColor = "red";
+                if (!/^\d*$/.test(mobileNumber)) {
+                    mobileNumberField.nextElementSibling.textContent = "Mobile Number: Must contain only digits (0-9)."; 
+                } else {
+                    mobileNumberField.nextElementSibling.textContent = "Mobile Number: Must be exactly 10 digits.";
+                }
+                mobileNumberField.nextElementSibling.style.color = "red";
+                return false;
+            } else {
+                mobileNumberField.style.borderColor = "";
+                mobileNumberField.nextElementSibling.textContent = "";
+                return true;
+            }
+        }
+
+        function togglePassword(fieldId) {
+            const passwordField = document.getElementById(fieldId);
+            const eyeIcon = passwordField.nextElementSibling.querySelector('ion-icon');
+
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+                eyeIcon.setAttribute('name', 'eye'); 
+            } else {
+                passwordField.type = "password";
+                eyeIcon.setAttribute('name', 'eye-off'); 
+            }
+        }
+
+        document.addEventListener('mousemove', (e) => {
+            for (let i = 0; i < 3; i++) { 
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                particle.style.left = `${e.pageX}px`;
+                particle.style.top = `${e.pageY}px`;
+                particle.style.backgroundColor = `rgba(255, 255, 255, ${Math.random() * 0.7 + 0.3})`;
+                particle.style.setProperty('--x', `${(Math.random() - 0.5) * 50}px`); 
+                particle.style.setProperty('--y', `${(Math.random() - 0.5) * 50}px`);
+                document.body.appendChild(particle);
+
+                setTimeout(() => {
+                    particle.remove();
+                }, 1000);
+            }
+        });
+    </script>
+</body>
+</html>
