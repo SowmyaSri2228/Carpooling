@@ -7,37 +7,189 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles1.css">
+<style>
+    *{
+    padding:0;
+    margin:0;
+    box-sizing:border-box;
+    font-family:'Roboto','sans-serif';
+}
+section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    background: url('https://wallpapercave.com/wp/wp13273272.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
+    animation: animateBg 5s linear infinite;
+}
+@keyframes animateBg{
+    100%{
+        filter: hue-rotate(360deg);
+    }
+}
+
+.loginBox {
+    position: relative;
+    width:430px;
+    height:460px;
+    background:transparent;
+    border: 2px solid rgba(255,255,255,0.5);
+    border-radius:20px;
+    display:flex;
+    justify-content:center;
+    align-items: center;
+    backdrop-filter: blur(15px);
+}
+h2{
+    font-size: 2em;
+    color: white;
+    text-align: center;
+}
+.inputbox{
+    position:relative;
+    width: 310px;
+    margin: 20px 0px;
+    border-bottom: 2px solid white;
+}
+.inputbox label{
+    position:absolute;
+    top: 50%;
+    left:5px;
+    transform:translateY(-50%);
+    font-size: 1rem;
+    color: white;
+    pointer-events: none;
+    transition: .5s;
+}
+.inputbox input{
+    width:100%;
+    height: 50px;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    color: white;
+    padding: 0 32px 0 5px;
+    
+}
+.inputbox input:focus~label,
+.inputbox input:valid~label{
+    top: -5px;
+}
+.inputbox .icon{ 
+    position: absolute;
+    right:8px;
+    color: white;
+    font-size: 1.2em;
+    line-height: 57px;
+}
+.remember-forgot{
+    margin: -12px 0 12px;
+    font-size:12px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.remember-forgot label input{
+    margin-right: 3px;
+}
+.remember-forgot span{
+    padding: 5px;
+    font-size: 16px;
+}
+.remember-forgot a {
+    font-weight: 600;
+    color: white;
+    text-decoration: none;
+}
+.remember-forgot a:hover{
+    text-decoration: underline;
+}
+
+input:-webkit-autofill {
+    background: transparent !important; 
+    color: white !important; 
+    font-size: 16px;
+    -webkit-text-fill-color: white !important;
+    border: none;
+    box-shadow: 0 0 0px 1000px transparent inset !important;
+    transition: background-color 5000s ease-in-out 0s; 
+}
+
+
+button{
+    width: 100%;
+    height: 40px;
+    background-color: white;
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+    font-size: 18px;
+    color: black;
+    font-weight: 500;
+    margin-bottom: 17px;
+}
+.register-link{
+    color: white;
+    font-size: 15px;
+    text-align: center;
+    margin: 25px 0 10px;
+}
+.register-link p a{
+    color: white;
+    text-decoration:none;
+    font-weight: 600;
+}
+.register-link p a:hover{
+    text-decoration: underline;
+}
+
+@media (max-width:360px){
+    .loginBox{
+        width: 100%;
+        height: 100vh;
+        border: none;
+        border-radius: 0;
+    }
+    .inputbox{
+        width: 290px;
+    }
+}
+</style>
 </head>
 <body>
     <section>
     <div class="loginBox">
-        <form action="">
+        <form action="register.php" method="post" onsubmit="return validateForm()">
             <h2>Register</h2>
             <div class="inputbox">
                 <span class="icon">
                     <ion-icon name="contact"></ion-icon>
                 </span>
-                <input type="text" required>
+                <input type="text" name="username" required oninput="validateUsername()">
                 <label>Username:</label>
+
             </div>
             <div class="inputbox">
                 <span class="icon">
                     <ion-icon name="call"></ion-icon>
                 </span>
-                <input type="tel" required>
+                <input type="tel" name="mobile_number" required>
                 <label>Mobile Number:</label>
             </div>
             <div class="inputbox">
                 <span class="icon"><ion-icon name="mail-open"></ion-icon></span>
-                <input type="text" required>
-                <label >Email:</label>
+                <input type="text" name="email" required>
+                <label>Email:</label>
             </div>
             <div class="inputbox">
-                <span class="icon"><ion-icon name="lock"></ion-icon>
-                </span>
-                <input type="password" required>
-                <label for="password">Password:</label>
+                <span class="icon"><ion-icon name="lock"></ion-icon></span>
+                <input type="password" name="password" required>
+                <label>Password:</label>
             </div>
             <button type="submit">Sign Up</button>
 
@@ -46,15 +198,86 @@
                    <span style="text-align: left;">Already exist?<a href="/sample.html">Login</a></span> 
                 </label>
             </div>
-            
-            
-            
-            
-            
-            
         </form>
     </div>
 </section>
     <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+    <script>
+        function validateUsername() {
+            let username = document.getElementById('username').value;
+            let usernameWarning = document.getElementById('usernameWarning');
+            let usernameRegex = /^[a-zA-Z0-9_]*$/; 
+
+            if (!usernameRegex.test(username) && username.length > 0) {
+                usernameWarning.style.display = 'inline';
+            } else {
+                usernameWarning.style.display = 'none';
+            }
+}
+    function validateForm() {
+        let username = document.querySelector('input[name="username"]').value;
+        let mobileNumber = document.querySelector('input[name="mobile_number"]').value;
+        let email = document.querySelector('input[name="email"]').value;
+        let password = document.querySelector('input[name="password"]').value;
+        let usernameError = document.getElementById('usernameError');
+        let mobileError = document.getElementById('mobileError');
+        let emailError = document.getElementById('emailError');
+        let passwordError = document.getElementById('passwordError');
+        let usernameRegex = /^[a-zA-Z0-9_]*$/;
+        let mobileRegex = /^[0-9]{10}$/;
+        let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+       
+        usernameError.textContent = "";
+        mobileError.textContent = "";
+        emailError.textContent = "";
+        passwordError.textContent = "";
+
+        
+        if (!usernameRegex.test(username)) {
+            usernameError.textContent = "Username can only contain letters, numbers, and underscores.";
+            return false; 
+        }
+
+        if (!mobileRegex.test(mobileNumber)) {
+            mobileError.textContent = "Mobile number must be 10 digits.";
+            return false; 
+        }
+
+        if (!emailRegex.test(email)) {
+            emailError.textContent = "Please enter a valid email address.";
+            return false; 
+        }
+        if (password.length < 6) {
+            passwordError.textContent = "Password must be at least 6 characters long.";
+            return false; 
+        }
+
+        let isAvailable = false;
+        let xhr = new XMLHttpRequest();
+        xhr.open("POST", "check_username.php", true);
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                if (xhr.responseText === "exists") {
+                    usernameError.textContent = "Username already exists.";
+                } else {
+                    isAvailable = true;
+                }
+            }
+        };
+        xhr.send("username=" + username);
+
+        setTimeout(function() {
+            if (!isAvailable) {
+                return false;
+            }
+            document.querySelector('form').submit();
+        }, 1000);
+
+        return false; 
+    }
+</script>
+    </script>
 </body>
 </html>
