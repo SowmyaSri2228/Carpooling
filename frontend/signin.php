@@ -34,13 +34,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->fetch();
     $stmt->close();
 
-    // Verify password
     if (password_verify($password, $hashed_password)) {
-        // Redirect to index.html on successful login
-        header("Location: index.html");
+        header("Location: index.php");
         exit();
     } else {
-        // Incorrect password
         header("Location: signin.html?error=Incorrect password");
         exit();
     }

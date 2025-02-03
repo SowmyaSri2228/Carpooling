@@ -17,7 +17,7 @@ section {
     align-items: center;
     width: 100%;
     min-height: 100vh;
-    background: url('https://wallpapercave.com/w/wp14950789.jpg') no-repeat;
+    background: url('../images/signup.jpg') no-repeat;
     background-size: cover;
     background-position: center;
     animation: animateBg 20s linear infinite;

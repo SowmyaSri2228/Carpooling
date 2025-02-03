@@ -21,7 +21,7 @@ session_start();
             <ul class="links">
                 <li><a href="index.php">Home</a></li>
                 <li><a href="howitworks.html">How-it-works</a></li>
-                <li><a href="features.php">Features</a></li>
+                <li><a href="features.html">Features</a></li>
                 <li><a href="about.php">About</a></li>
                 <li><a href="takearide.php">BookRide</a></li>
                 <li><a href="offerride.php">OfferRide</a></li>
