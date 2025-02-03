@@ -13,7 +13,7 @@
     footer {
       color: #fff;
       padding: 30px 0;
-      background-image: url('../images/footer.jpg'); 
+      background-image: url('https://wallpapercave.com/w/wp11325348.jpg'); 
       background-size: cover;
       background-position: center;
 
