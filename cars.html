@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cars</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f8f9fa;
+        }
+        h1 {
+            text-align: center;
+        }
+        .cars-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        .car-card {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-align: center;
+            width: 250px;
+        }
+        .car-card img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .car-card p {
+            font-weight: bold;
+            margin-top: 5px;
+        }
+        .navbar {
+            background: #007bff;
+            padding: 15px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            border-radius: 10px;
+            margin: 10px auto;
+            max-width: 80%;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            transition: 0.3s;
+        }
+        .navbar a:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        .active {
+            background: #007bff;
+            color: white;
+            font-weight: bold;
+            box-shadow: 0px 4px 10px rgba(0, 123, 255, 0.5);
+            border-bottom: 3px solid white;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <h2>Tax<span>i</span> App</h2>
+        <nav>
+            <a href="./index1.html" target="_parent">Home</a>
+            <a href="./product.html" target="_parent">Products</a>
+            <a href="./cars.html" target="_parent" class="active">Cars</a>
+            <a href="./safety.html" target="_parent">Safety</a>
+            <a href="./contact.html" target="_parent">Contact</a>
+        </nav>
+    </div>
+    <h1>Our Cars</h1>
+    <div class="cars-container">
+        <div class="car-card">
+            <img src="https://via.placeholder.com/250" alt="Car 1">
+            <p>Plate: ABC-1234</p>
+        </div>
+        <div class="car-card">
+            <img src="https://via.placeholder.com/250" alt="Car 2">
+            <p>Plate: XYZ-5678</p>
+        </div>
+        <div class="car-card">
+            <img src="https://via.placeholder.com/250" alt="Car 3">
+            <p>Plate: LMN-9101</p>
+        </div>
+    </div>
+</body>
+</html>
