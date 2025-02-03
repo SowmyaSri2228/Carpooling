@@ -22,7 +22,7 @@ session_start();
                 <li><a href="index.php">Home</a></li>
                 <li><a href="howitworks.html">How-it-works</a></li>
                 <li><a href="features.html">Features</a></li>
-                <li><a href="about.php">About</a></li>
+                <li><a href="about.html">About</a></li>
                 <li><a href="takearide.php">BookRide</a></li>
                 <li><a href="offerride.php">OfferRide</a></li>
             </ul>
@@ -99,7 +99,7 @@ session_start();
                 <h4>Quick Links</h4>
                 <ul>
                     <li><a href="index.php">Home</a></li>
-                    <li><a href="/about">About Us</a></li>
+                    <li><a href="about.html">About Us</a></li>
                     <li><a href="/contact">Contact</a></li>
                     <li><a href="/terms">Terms & Conditions</a></li>
                 </ul>
