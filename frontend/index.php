@@ -20,8 +20,8 @@
                 <li><a href="howitworks.html">How-it-works</a></li>
                 <li><a href="features.html">Features</a></li>
                 <li><a href="about.html">About</a></li>
-                <li><a href="takearide.php">BookRide</a></li>
-                <li><a href="offerride.php">OfferRide</a></li>
+                <li><a href="../cars.html">BookRide</a></li>
+                <li><a href="../cars.html">OfferRide</a></li>
             </ul>
         </nav>
     </div>
@@ -54,7 +54,7 @@
         <div class="option-box">
             <h2>Take a Ride</h2>
             <p>Need a ride? Click below to book a ride.</p>
-            <a href="ride.html" class="btn">Ride Option</a>
+            <a href="../cars.html" class="btn">Ride Option</a>
         </div>
         <div class="option-box">
             <h2>Offer a Ride</h2>
