@@ -241,7 +241,7 @@ p {
     background-position: center;
     background-size: cover;
     min-height:100vh;
-    dispaly:flex;
+    display:flex;
     flex-direction:column;
     justify-content:flex-start;
     
