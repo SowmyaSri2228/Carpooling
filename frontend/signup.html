@@ -12,30 +12,33 @@
 <body>
     <section>
         <div class="loginBox">
-            <form action="" onsubmit="return validatePasswords()">
+            <!-- Display error or success messages -->
+            <div id="message" style="color: red; text-align: center; margin-bottom: 10px;"></div>
+
+            <form action="signup.php" method="POST" onsubmit="return validateForm()">
                 <h2>Register</h2>
                 <div class="inputbox">
                     <span class="icon">
                         <ion-icon name="contact"></ion-icon>
                     </span>
-                    <input type="text" required>
+                    <input type="text" name="name" required>
                     <label>Name:</label>
                 </div>
                 <div class="inputbox">
                     <span class="icon">
                         <ion-icon name="call"></ion-icon>
                     </span>
-                    <input type="tel" required>
+                    <input type="tel" name="mobile_number" required>
                     <label>Mobile Number:</label>
                 </div>
                 <div class="inputbox">
                     <span class="icon"><ion-icon name="mail-open"></ion-icon></span>
-                    <input type="mail" required>
+                    <input type="email" name="email" required>
                     <label>Email:</label>
                 </div>
                 <div class="inputbox">
                     <span class="icon"><ion-icon name="lock"></ion-icon></span>
-                    <input type="password" id="password" required>
+                    <input type="password" id="password" name="password" required>
                     <label for="password">Password:</label>
                     <span class="eye-icon" onclick="togglePassword('password')">
                         <ion-icon name="eye-off"></ion-icon>
@@ -43,7 +46,7 @@
                 </div>
                 <div class="inputbox">
                     <span class="icon"><ion-icon name="lock"></ion-icon></span>
-                    <input type="password" id="confirmPassword" required>
+                    <input type="password" id="confirmPassword" name="confirm_password" required>
                     <label for="confirmPassword">Confirm Password:</label>
                     <span class="eye-icon" onclick="togglePassword('confirmPassword')">
                         <ion-icon name="eye-off"></ion-icon>
@@ -62,6 +65,20 @@
     <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
     <script>
         
+        function displayMessage() {
+            const params = new URLSearchParams(window.location.search);
+            const messageBox = document.getElementById('message');
+
+            if (params.has('error')) {
+                messageBox.style.color = "red";
+                messageBox.textContent = params.get('error');
+            } else if (params.has('success')) {
+                messageBox.style.color = "green";
+                messageBox.textContent = params.get('success');
+            }
+        }
+        window.onload = displayMessage;
+
         function validateMobileNumber() {
             const mobileNumberField = document.querySelector('input[type="tel"]');
             const mobileNumber = mobileNumberField.value;

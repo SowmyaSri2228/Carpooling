@@ -10,46 +10,58 @@
     <link rel="stylesheet" href="signin.css">
 </head>
 <body>
-    <section>
-        <div class="loginBox">
-            <form action="">
-                <h2>Login</h2>
-                <div class="inputbox">
-                    <span class="icon">
-                        <ion-icon name="call"></ion-icon>
-                    </span>
-                    <input type="tel" required>
-                    <label>Mobile Number:</label>
-                </div>
-                <div class="inputbox">
-                    <span class="icon"><ion-icon name="lock"></ion-icon></span>
-                    <input type="password" id="password" required>
-                    <label for="password">Password:</label>
-                    <span class="eye-icon" onclick="togglePassword('password')">
-                        <ion-icon name="eye-off"></ion-icon>
-                    </span>
-                </div>
-                
-               
-
-                <div class="remember-forgot">
-                    <label>
-                        <span style="text-align: left;">Don't have an account? <a href="signup.html"><strong>Register</strong>
-                        </a></span>
-                    </label>
-                </div>
-
-                <div class="remember-forgot">
-                    <label>
-                        <span style="text-align: left;">Login using email? <a href="signinEmail.html"><strong>Click here</strong></a></span>
-                    </label>
-                </div>
-                <button type="submit">Login</button>
-            </form>
-        </div>
-    </section>
+    <body>
+        <section>
+            <div class="loginBox">
+                <div id="message" style="color: red; text-align: center; margin-bottom: 10px;"></div>
+    
+                <form action="signin.php" method="POST">
+                    <h2>Login</h2>
+                    <div class="inputbox">
+                        <span class="icon">
+                            <ion-icon name="call"></ion-icon>
+                        </span>
+                        <input type="tel" name="mobile_number" required>
+                        <label>Mobile Number:</label>
+                    </div>
+                    <div class="inputbox">
+                        <span class="icon"><ion-icon name="lock"></ion-icon></span>
+                        <input type="password" id="password" name="password" required>
+                        <label for="password">Password:</label>
+                        <span class="eye-icon" onclick="togglePassword('password')">
+                            <ion-icon name="eye-off"></ion-icon>
+                        </span>
+                    </div>
+    
+                    <div class="remember-forgot">
+                        <label>
+                            <span style="text-align: left;">Don't have an account? <a href="signup.html"><strong>Register</strong>
+                            </a></span>
+                        </label>
+                    </div>
+    
+                    <div class="remember-forgot">
+                        <label>
+                            <span style="text-align: left;">Login using email? <a href="signinEmail.html"><strong>Click here</strong></a></span>
+                        </label>
+                    </div>
+                    <button type="submit">Login</button>
+                </form>
+            </div>
+        </section>
     <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
     <script>
+
+function displayMessage() {
+            const params = new URLSearchParams(window.location.search);
+            const messageBox = document.getElementById('message');
+
+            if (params.has('error')) {
+                messageBox.style.color = "red";
+                messageBox.textContent = params.get('error');
+            }
+        }
+        window.onload = displayMessage;
 
         document.querySelector('form').onsubmit = function() {
             return validateMobileNumber();
