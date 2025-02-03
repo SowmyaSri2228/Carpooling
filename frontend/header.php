@@ -46,6 +46,84 @@ header {
     height:90px;
     width:90px;
     border-radius:50%;
+              }
+        footer {
+      color: #fff;
+      padding: 30px 0;
+      background-image: url('https://wallpapercave.com/w/wp11325348.jpg'); 
+      background-size: cover;
+      background-position: center;
+
+    }
+    .footer-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    .footer-logo h3 {
+      font-size: 24px;
+      margin: 0;
+    }
+    .footer-logo p {
+      font-size: 14px;
+      color: #bbb;
+    }
+    .footer-links {
+      display: flex;
+      gap: 40px;
+    }
+    .footer-links div {
+      font-size: 14px;
+    }
+    .footer-links h4 {
+      font-size: 18px;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+    .footer-links ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    .footer-links a {
+      color: #bbb;
+      text-decoration: none;
+      display: block;
+      margin: 5px 0;
+    }
+    .footer-links a:hover {
+      color: #fff;
+    }
+    .footer-social {
+      display: flex;
+      gap: 20px;
+    }
+    .footer-social a {
+      color: #bbb;
+      text-decoration: none;
+    }
+    .footer-social img {
+      width: 30px;
+      height: 30px;
+    }
+    .footer-social a:hover img {
+      opacity: 0.8;
+    }
+
+    .twitter-icon-wrapper {
+      background-color: white;
+      border-radius: 50%; 
+      padding: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .twitter-icon-wrapper img {
+      width: 20px;
+      height: 20px;
+    }
 </style>
 </head>
 <body>
