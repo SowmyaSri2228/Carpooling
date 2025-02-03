@@ -101,7 +101,7 @@ session_start();
                     <li><a href="index.php">Home</a></li>
                     <li><a href="about.html">About Us</a></li>
                     <li><a href="contact.html">Contact</a></li>
-                    <li><a href="/terms">Terms & Conditions</a></li>
+                    <li><a href="terms.html">Terms & Conditions</a></li>
                 </ul>
             </div>
             <div>
