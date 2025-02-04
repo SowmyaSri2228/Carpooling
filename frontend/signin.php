@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = sanitizeInput($_POST['password']);
 
     // Check if mobile number exists
-    $stmt = $conn->prepare("SELECT id, password FROM users WHERE mobile_number = ?");
+    $stmt = $conn->prepare("SELECT password FROM users WHERE mobile_number = ?");
     $stmt->bind_param("s", $mobile_number);
     $stmt->execute();
     $stmt->store_result();
@@ -32,15 +32,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit();
     }
 
-    $stmt->bind_result($user_id, $hashed_password);
+    $stmt->bind_result($hashed_password);
     $stmt->fetch();
     $stmt->close();
 
     if (password_verify($password, $hashed_password)) {
-        // Store user session
-        $_SESSION['user_id'] = $user_id;
-
-        // Redirect to homepage
         header("Location: index.php");
         exit();
     } else {
