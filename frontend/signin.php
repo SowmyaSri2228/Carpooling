@@ -1,4 +1,6 @@
 <?php
+session_start(); // Start the session
+
 $host = 'localhost';
 $dbname = 'vehicle_pooling';
 $username = 'root';
@@ -19,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = sanitizeInput($_POST['password']);
 
     // Check if mobile number exists
-    $stmt = $conn->prepare("SELECT password FROM users WHERE mobile_number = ?");
+    $stmt = $conn->prepare("SELECT id, username, email, password FROM users WHERE mobile_number = ?");
     $stmt->bind_param("s", $mobile_number);
     $stmt->execute();
     $stmt->store_result();
@@ -30,11 +32,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit();
     }
 
-    $stmt->bind_result($hashed_password);
+    $stmt->bind_result($user_id, $username, $email, $hashed_password);
     $stmt->fetch();
     $stmt->close();
 
     if (password_verify($password, $hashed_password)) {
+        // Store user details in the session
+        $_SESSION['user_id'] = $user_id;
+        $_SESSION['username'] = $username;
+        $_SESSION['email'] = $email;
+        $_SESSION['mobile_number'] = $mobile_number;
+
+        // Redirect to the homepage or any other page
         header("Location: index.php");
         exit();
     } else {
