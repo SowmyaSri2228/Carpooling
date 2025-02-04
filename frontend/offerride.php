@@ -274,7 +274,8 @@ header {
 </header>
  <div class="offer-ride-container">
     <h1>Offer a Ride</h1>
-    <form id="offer-ride-form">
+    <form id="offer-ride-form" action="save_ride.php" method="POST">
+
         <!-- Vehicle Details -->
         <div class="form-group">
             <label for="vehicle-type">Vehicle Type</label>
