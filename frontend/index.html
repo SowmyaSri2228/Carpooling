@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RideShare - Find Your Perfect Ride</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDDVROE0bO7yMSpAB9ARPvZG0lrUOCWRMA&libraries=places&callback=initMap" 
+            async 
+            defer
+            onerror="mapError()"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="main-header">
+        <nav>
+            <div class="logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/BlaBlaCar_logo.svg/2560px-BlaBlaCar_logo.svg.png" alt="RideShare Logo" height="30">
+            </div>
+            <div class="nav-links">
+                <a href="#" class="active">Carpool</a>
+                <a href="#">Bike</a>
+            </div>
+            <div class="nav-right">
+                <button class="search-btn">Search</button>
+                <button class="publish-btn">Publish a ride</button>
+                <div class="user-profile" onclick="toggleProfileDropdown()">
+                    👤
+                    <div class="profile-dropdown" id="profileDropdown">
+                        <div class="profile-header">
+                            <h3>Profile Details</h3>
+                        </div>
+                        <div class="profile-info">
+                            <div id="userDetails">
+                                <div class="profile-field">
+                                    <label>Username</label>
+                                    <p class="user-info" id="viewUsername"></p>
+                                </div>
+                                <div class="profile-field">
+                                    <label>Name</label>
+                                    <p class="user-info" id="viewFullName"></p>
+                                </div>
+                                <div class="profile-field">
+                                    <label>Mobile Number</label>
+                                    <p class="user-info" id="viewMobile"></p>
+                                </div>
+                                <button class="logout-btn" onclick="logout()">Logout</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1>Your pick of rides at low prices</h1>
+            <div class="search-container">
+                <form id="rideForm" class="search-form">
+                    <div class="search-inputs">
+                        <div class="input-group" data-type="pickup">
+                            <span class="icon">📍</span>
+                            <input type="text" id="pickup" placeholder="Leaving from" required>
+                        </div>
+                        <div class="input-group" data-type="location">
+                            <span class="icon">🎯</span>
+                            <input type="text" id="destination" placeholder="Going to" required>
+                        </div>
+                        <div class="input-group">
+                            <span class="icon">📅</span>
+                            <input type="date" id="date" required>
+                        </div>
+                        <div class="input-group">
+                            <span class="icon">⏰</span>
+                            <input type="time" id="time" required>
+                        </div>
+                        <div class="input-group">
+                            <span class="icon">👥</span>
+                            <select id="passengers" required>
+                                <option value="">Select passengers</option>
+                                <option value="1">1 passenger</option>
+                                <option value="2">2 passengers</option>
+                                <option value="3">3 passengers</option>
+                                <option value="4">4 passengers</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="vehicle-preference">
+                        <label class="vehicle-option">
+                            <input type="radio" name="vehicleType" value="any" checked>
+                            <span class="radio-label">Any</span>
+                        </label>
+                        <label class="vehicle-option">
+                            <input type="radio" name="vehicleType" value="car">
+                            <span class="radio-label">Car</span>
+                        </label>
+                        <label class="vehicle-option">
+                            <input type="radio" name="vehicleType" value="bike">
+                            <span class="radio-label">Bike</span>
+                        </label>
+                    </div>
+                    <button type="submit" class="search-button">Search</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="feature">
+            <div class="feature-icon">🛵</div>
+            <h3>Your pick of rides at low prices</h3>
+            <p>No matter where you're going, find the perfect ride from our wide range of destinations and routes at low prices.</p>
+        </div>
+        <div class="feature">
+            <div class="feature-icon">🤝</div>
+            <h3>Trust who you travel with</h3>
+            <p>We check reviews, profiles and IDs, so you know who you're travelling with and can book your ride with confidence.</p>
+        </div>
+        <div class="feature">
+            <div class="feature-icon">⚡</div>
+            <h3>Scroll, click, tap and go!</h3>
+            <p>Booking a ride has never been easier! Thanks to our simple app powered by great technology.</p>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section class="results-section" style="display: none;">
+        <div class="container">
+            <div id="bookingDetails" class="booking-details" style="display: none;">
+                <h2>Booking Details</h2>
+                <div class="details-content"></div>
+            </div>
+
+            <div id="map"></div>
+
+            <div id="results" class="results-container">
+                <h2>Available Rides</h2>
+                <div class="transport-options"></div>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
