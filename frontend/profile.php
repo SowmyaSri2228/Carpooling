@@ -1,28 +1,44 @@
 <?php
 session_start();
-include("db.php");
 
+// Check if the user is logged in
 if (!isset($_SESSION['user_id'])) {
+    // Redirect to the sign-in page if the user is not logged in
     header("Location: signin.php");
     exit();
 }
 
+// Retrieve user details from the session
 $user_id = $_SESSION['user_id'];
-$query = "SELECT * FROM users WHERE id='$user_id'";
-$result = mysqli_query($conn, $query);
-$user = mysqli_fetch_assoc($result);
+$username = $_SESSION['username'];
+$email = $_SESSION['email'];
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Profile</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
 </head>
 <body>
-    <h2>Welcome, <?php echo $user['name']; ?></h2>
-    <p>Email: <?php echo $user['email']; ?></p>
-    <p>Department: <?php echo $user['department']; ?></p>
-    <p>Year: <?php echo $user['year']; ?></p>
-    <a href="logout.php">Logout</a>
+    <header>
+        <!-- Your header content here -->
+    </header>
+
+    <main>
+        <h1>User Profile</h1>
+        <div class="profile-details">
+            <p><strong>User ID:</strong> <?php echo htmlspecialchars($user_id); ?></p>
+            <p><strong>Username:</strong> <?php echo htmlspecialchars($username); ?></p>
+            <p><strong>Email:</strong> <?php echo htmlspecialchars($email); ?></p>
+        </div>
+        <a href="logout.php">Logout</a>
+    </main>
+
+    <footer>
+        <!-- Your footer content here -->
+    </footer>
 </body>
 </html>
