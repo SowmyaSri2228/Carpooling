@@ -1,3 +1,9 @@
+<?php
+session_start(); // Start session
+
+$isLoggedIn = isset($_SESSION['user_id']);
+?>
+
 <html>
 <head>
 <title>AboutPage Of RidelLine</title>
@@ -51,11 +57,39 @@ header {
     color:rgb(255,255,255);
    
 }
+.logged-in .links {
+    display: flex !important;
+}
+
+
 .user-account {
     display: flex;
     align-items: center;
     gap: 15px;
-   
+}
+
+.user-account a {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #007bff; 
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.user-account a:hover {
+    background-color: #0056b3;
+}
+
+.logout-btn {
+    background-color: #94bad3;
+    margin-left: 10px;
+}
+
+.logout-btn:hover {
+    background-color: #a71d2a;
 }
     footer {
       color:rgb(255,255,255);
@@ -231,25 +265,33 @@ section:hover {
 </style>
 </head>
 <body>
-<header>
-<div class="logo">
-    <img src="https://raw.githubusercontent.com/SowmyaSri2228/Carpooling/Temporary/images/logo.png"  width="250" alt="icon">
-  
-</div>
-<div class="navigation">
-    <ul class="links">
-        <li><a href="index.php">Home</a></li>
-        <li><a href="howitworks.html">How-it-works</a></li>
-        <li><a href="features.html">Features</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="takearide.html">BookRide</a></li>
-        <li><a href="offerride.html">OfferRide</a></li>
-    </ul
-</div>
+  <header>
+    <div class="logo">
+        <img src="../images/logo.png" width="250" alt="icon">
+    </div>
+    <div class="navigation">
+        <nav id="navigation-for-links">
+            <ul class="links">
+                <li><a href="index.php">Home</a></li>
+                <li><a href="howitworks.php">How-it-works</a></li>
+                <li><a href="features.php">Features</a></li>
+                <li><a href="about.php">About</a></li>
+                <li><a href="../cars.html">BookRide</a></li>
+                <li><a href="offerride.php">OfferRide</a></li>
+            </ul>
+        </nav>
 
-<div class="user-account">
-      <img src="https://cdn-thumbs.imagevenue.com/db/66/38/ME19YZ3O_t.png" alt="CARLOGO.png"/>
-</div>
+        
+    </div>
+    <div class="user-account">
+        <?php if($isLoggedIn): ?>
+            <a href="profile.php">User Profile</a>
+            <a href="logout.php">Logout</a> 
+        <?php else: ?>
+            <a href="signin.html">Sign In</a>
+        <?php endif; ?>
+        <img src="https://cdn-thumbs.imagevenue.com/db/66/38/ME19YZ3O_t.png" alt="CARLOGO.png"/>
+    </div>
 </header>
 <section id="about-intro">
         <div class="container">
@@ -331,7 +373,7 @@ section:hover {
           <h4>Quick Links</h4>
           <ul>
             <li><a href="index.php">Home</a></li>
-            <li><a href="about.html">About Us</a></li>
+            <li><a href="about.php">About Us</a></li>
             <li><a href="contact.html">Contact</a></li>
             <li><a href="terms.html">Terms & Conditions</a></li>
           </ul>

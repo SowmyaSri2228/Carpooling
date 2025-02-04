@@ -1,7 +1,6 @@
 <?php
 session_start(); // Start session
 
-// Check if user is logged in
 $isLoggedIn = isset($_SESSION['user_id']);
 ?>
 <!DOCTYPE html>
@@ -12,7 +11,7 @@ $isLoggedIn = isset($_SESSION['user_id']);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="index.css">
 </head>
-<body class="<?php echo isset($_SESSION['user_id']) ? 'logged-in' : ''; ?>">
+<body>
 <header>
     <div class="logo">
         <img src="../images/logo.png" width="250" alt="icon">
@@ -21,13 +20,15 @@ $isLoggedIn = isset($_SESSION['user_id']);
         <nav id="navigation-for-links">
             <ul class="links">
                 <li><a href="index.php">Home</a></li>
-                <li><a href="howitworks.html">How-it-works</a></li>
-                <li><a href="features.html">Features</a></li>
-                <li><a href="about.html">About</a></li>
+                <li><a href="howitworks.php">How-it-works</a></li>
+                <li><a href="features.php">Features</a></li>
+                <li><a href="about.php">About</a></li>
                 <li><a href="../cars.html">BookRide</a></li>
-                <li><a href="offerride.html">OfferRide</a></li>
+                <li><a href="offerride.php">OfferRide</a></li>
             </ul>
         </nav>
+
+        
     </div>
     <div class="user-account">
         <?php if($isLoggedIn): ?>
@@ -69,7 +70,7 @@ $isLoggedIn = isset($_SESSION['user_id']);
         </div>
     </div>
  <section class="testimonials">
-     <h2>Why choose RIDELINE?</h2> 
+     <h2>Why choose RIDETIME?</h2> 
      <div class="testimonials-container">
         <div class="testimonial-card">
            

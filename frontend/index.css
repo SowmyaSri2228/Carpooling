@@ -38,9 +38,15 @@ header {
     text-decoration: none;
     font-size: 15px;
 }
+
 .links li a:hover {
     color:rgb(255,255,255);
 }
+
+.logged-in .links {
+    display: flex !important;
+}
+
 
 .user-account {
     display: flex;
@@ -48,16 +54,10 @@ header {
     gap: 15px;
 }
 
-/* Hide links when user is logged in */
-.logged-in .links {
-    display: none; /* Hides all navigation links */
-}
-
-/* Style the User Profile and Logout button */
 .user-account a {
     display: inline-block;
     padding: 10px 15px;
-    background-color: #007bff; /* Blue background */
+    background-color: #007bff; 
     color: white;
     text-decoration: none;
     border-radius: 5px;

@@ -1,6 +1,12 @@
+<?php
+session_start(); // Start session
+
+$isLoggedIn = isset($_SESSION['user_id']);
+?>
+
 <html>
 <head>
-<title>Feauters Page of RideLine</title>
+<title>How-it-works Page Of Carpooling</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <style>
@@ -9,10 +15,8 @@ body {
     margin: 0;
     padding: 0;
     background-color:#ffffff;
-    box-sizing:border-box;
-}
-*,*:before,*:after{
-box-sizing:inherit;
+    min-height:100vh;
+    
 }
 header {
     background:rgb(38,38,38);
@@ -55,11 +59,39 @@ header {
     color:rgb(255,255,255);
    
 }
+.logged-in .links {
+    display: flex !important;
+}
+
+
 .user-account {
     display: flex;
     align-items: center;
     gap: 15px;
-   
+}
+
+.user-account a {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #007bff; 
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.user-account a:hover {
+    background-color: #0056b3;
+}
+
+.logout-btn {
+    background-color: #94bad3;
+    margin-left: 10px;
+}
+
+.logout-btn:hover {
+    background-color: #a71d2a;
 }
     footer {
       color:rgb(255,255,255);
@@ -155,113 +187,120 @@ header {
     color:rgba(255,255,255,0.6);
     white-space:nowrap;
     }
-.container{
-  width:100%;
-  overflow:hidden;
-  background-color:rgba(237,227,228,0.8);
-  padding:20px;
-  justify-content:flex-start;
+  .how-it-works{
+    padding:20px 20px;
+    text-align:center;
+    display: flex;
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    flex: 1;
+   }
+  .how-it-works h1{
+   font-size:36px;
+   color:#007BFF;
+   margin-bottom:20px;
+   background-color:#f7f7f7;
+   animation:scroll 15s linear infinite;  
+  }
+  @keyframes scroll {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
 }
-.features{
- display:flex;
- flex-wrap:wrap;
- gap:20px;
- justify-content:space-around;
- margin-top:20px;
-}
-.feature {
-            background-color: #797777;
-            color: white;
-            padding: 20px;
-            width: 100%;
-            font-size: 18px;
-            border-radius: 5px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            cursor: pointer;
-            overflow:hidden;
-            white-space:normal;
-            margin-bottom:20px;
-        }
-
-        .feature:hover {
-            transform: scale(1.05); 
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        }
-
-        @keyframes scroll {
-            0% {
-                transform: translateX(100%);
-            }
-            100% {
-                transform: translateX(-100%);
-            }
-        }
+  .steps-containter{
+    display:flex;
+    justify-content:space-around;
+    flex-wrap:wrap;
+    gap:40px;
+    margin-top:30px;
+    align-items:center;
+     
+  }
+ .step{
+   background-color:#f5f5f5;
+   padding:20px;
+   border-radius:8px;
+   box-shadow:0 4px 6px rgba(0,0,0,0.1);
+   width:300px;
+   transition:transform 0.3s ease,box-shadow 0.3s;
+   margin:20px;
+   
+  
+  }
+ .step:hover{
+    transform:scale(1.1);
+    box-shadow:0 6px 10px rgba(0,0,0,0.2);
+ }
+.step p{
+   font-size:16px;
+   color:#666;
+ }
+.step h2{
+   font-size:24px;
+   color:#007BFF;
+   margin-bottom:15px;
+  }
 
 
 </style>
 </head>
 <body>
 <header>
-<div class="logo">
-   <img src="https://raw.githubusercontent.com/SowmyaSri2228/Carpooling/Temporary/images/logo.png"  width="250" alt="icon">
-  
-</div>
-<div class="navigation">
-    <ul class="links">
-        <li><a href="index.php">Home</a></li>
-        <li><a href="howitworks.html">How-it-works</a></li>
-        <li><a href="features.html">Features</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="takearide.html">BookRide</a></li>
-        <li><a href="offerride.html">OfferRide</a></li>
-    </ul>
-</div>
-
-<div class="user-account">
-  <img src="https://cdn-thumbs.imagevenue.com/db/66/38/ME19YZ3O_t.png" alt="CARLOGO.png"/>
-</div>      
-
-</header>
-      <div class="container">
-       <h1 style="text-align:center;margin-top:20px;color:#007BFF;">Our features</h1>
-        <div class="features">
-         <div class="feature">
-           <h3>Ride posting and ride searching</h3>
-            <p> Easily post your available rides and search for rides from other users.Save time and connect with others who share similar routes</p>
-             </h3>
-          </div>
-        <div class="feature">
-           <h3>Allows multiple users</h3>
-            <p>Whehter you are riding a car,van or bike our platform allows you to post rides with multiple vehicle types to soute your needs.</p> 
-
-          </div>
-         <div class="feature">
-           <h3>GPS Integration</h3>
-            <p>Our GPS Integration ensures accurate route navigation for drivers and passengers,providing real-time update status and arrival times.</p> 
-          </div>
-          <div class="feature">
-           <h3>Google Maps Integration</h3>
-            <p>Google Maps directly within the platform for route planning,real-time tracking,and detailed location info.</p> 
-          </div>
-          <div class="feature">
-           <h3>User reviews</h3>
-            <p>Read and leave reviews to help others make informed decisions about rides and drivers.Build trust and community.</p> 
-          </div>
-          <div class="feature">
-           <h3>Emergency numbers</h3>
-            <p>In case of emergency,easily access local emergency contact numbers directly from the app for immediate assistance.</p> 
-          </div>
-         <div class="feature">
-           <h3>Filtering Rides</h3>
-            <p>Filter rides by route,time, and vehicle type to find the perfect match for your travel needs,ensuring a convenient experience every time.</p> 
-          </div>
-          <div class="feature">
-           <h3>Ride availability</h3>
-            <p>Check the availability of rides in real-time,and ensure that your preferred ride option is available when you need it most.</p> 
-          </div>
-       </div>
+    <div class="logo">
+        <img src="../images/logo.png" width="250" alt="icon">
     </div>
-<footer>
+    <div class="navigation">
+        <nav id="navigation-for-links">
+            <ul class="links">
+                <li><a href="index.php">Home</a></li>
+                <li><a href="howitworks.php">How-it-works</a></li>
+                <li><a href="features.php">Features</a></li>
+                <li><a href="about.php">About</a></li>
+                <li><a href="../cars.html">BookRide</a></li>
+                <li><a href="offerride.php">OfferRide</a></li>
+            </ul>
+        </nav>
+
+        
+    </div>
+    <div class="user-account">
+        <?php if($isLoggedIn): ?>
+            <a href="profile.php">User Profile</a>
+            <a href="logout.php">Logout</a> 
+        <?php else: ?>
+            <a href="signin.html">Sign In</a>
+        <?php endif; ?>
+        <img src="https://cdn-thumbs.imagevenue.com/db/66/38/ME19YZ3O_t.png" alt="CARLOGO.png"/>
+    </div>
+</header>
+
+   
+     <section class="how-it-works">
+       <h1>How it works</h1>
+        <div class="step-container">
+         <div class="step">
+          <h2>Step1:Sign Up</h2>
+           <p>Create an account with RIDELINE to start using our services.It's quick and easy!</p>
+          </div>
+           <div class="step">
+                <h2>Step 2: Choose Your Role</h2>
+                <p>Decide whether you want to offer a ride or take a ride. Select the option that suits you best.</p>
+            </div>
+            <div class="step">
+                <h2>Step 3: Post or Search</h2>
+                <p>If you're offering a ride, post your ride details. If you're taking a ride, search for available rides.</p>
+            </div>
+            <div class="step">
+                <h2>Step 4: Confirm & Ride</h2>
+                <p>Once you find a match, confirm the ride and enjoy your journey with RIDELINE!</p>
+            </div>
+        </div>
+    </section>
+    <footer>
     <div class="footer-container">
       
       <div class="footer-logo">
@@ -275,7 +314,7 @@ header {
           <ul>
             <li><a href="index.php">Home</a></li>
             <li><a href="about.html">About Us</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="contact.htmlt">Contact</a></li>
             <li><a href="terms.html">Terms & Conditions</a></li>
           </ul>
         </div>
@@ -307,7 +346,8 @@ header {
       </div>
     </div>
   
-  </footer>
+  </footer>.
+    
 </body>
 </html>
 
