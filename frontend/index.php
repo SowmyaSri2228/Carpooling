@@ -1,5 +1,9 @@
+<?php
+session_start(); // Start session
 
-
+// Check if user is logged in
+$isLoggedIn = isset($_SESSION['user_id']);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,10 +12,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="index.css">
 </head>
-<body>
+<body class="<?php echo isset($_SESSION['user_id']) ? 'logged-in' : ''; ?>">
 <header>
     <div class="logo">
-        <img src="https://raw.githubusercontent.com/SowmyaSri2228/Carpooling/Temporary/images/logo.png" width="250" alt="icon">
+        <img src="../images/logo.png" width="250" alt="icon">
     </div>
     <div class="navigation">
         <nav id="navigation-for-links">
@@ -26,14 +30,16 @@
         </nav>
     </div>
     <div class="user-account">
-        <?php if(isset($_SESSION['user_id'])): ?>
+        <?php if($isLoggedIn): ?>
             <a href="profile.php">User Profile</a>
+            <a href="logout.php">Logout</a> 
         <?php else: ?>
             <a href="signin.html">Sign In</a>
         <?php endif; ?>
         <img src="https://cdn-thumbs.imagevenue.com/db/66/38/ME19YZ3O_t.png" alt="CARLOGO.png"/>
     </div>
 </header>
+
 
 <div  class="image-container">
     <div class="container">
