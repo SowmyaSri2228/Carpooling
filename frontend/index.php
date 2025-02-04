@@ -21,7 +21,7 @@
                 <li><a href="features.html">Features</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="../cars.html">BookRide</a></li>
-                <li><a href="cars.html">OfferRide</a></li>
+                <li><a href="offerride.html">OfferRide</a></li>
             </ul>
         </nav>
     </div>
@@ -59,7 +59,7 @@
         <div class="option-box">
             <h2>Offer a Ride</h2>
             <p>Have a ride to offer? Click below to offer a ride.</p>
-            <a href="cars.html" class="btn">Offer Ride Option</a>
+            <a href="offerride.html" class="btn">Offer Ride Option</a>
         </div>
     </div>
  <section class="testimonials">
