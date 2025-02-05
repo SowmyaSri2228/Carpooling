@@ -23,7 +23,7 @@ $isLoggedIn = isset($_SESSION['user_id']);
                 <li><a href="howitworks.php">How-it-works</a></li>
                 <li><a href="features.php">Features</a></li>
                 <li><a href="about.php">About</a></li>
-                <li><a href="../cars.html">BookRide</a></li>
+                <li><a href="takeride.php">BookRide</a></li>
                 <li><a href="offerride.php">OfferRide</a></li>
             </ul>
         </nav>
@@ -61,12 +61,12 @@ $isLoggedIn = isset($_SESSION['user_id']);
         <div class="option-box">
             <h2>Take a Ride</h2>
             <p>Need a ride? Click below to book a ride.</p>
-            <a href="../cars.html" class="btn">Ride Option</a>
+            <a href="takeride.php" class="btn">Ride Option</a>
         </div>
         <div class="option-box">
             <h2>Offer a Ride</h2>
             <p>Have a ride to offer? Click below to offer a ride.</p>
-            <a href="offerride.html" class="btn">Offer Ride Option</a>
+            <a href="offerride.php" class="btn">Offer Ride Option</a>
         </div>
     </div>
  <section class="testimonials">
@@ -103,7 +103,7 @@ $isLoggedIn = isset($_SESSION['user_id']);
                 <h4>Quick Links</h4>
                 <ul>
                     <li><a href="index.php">Home</a></li>
-                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="about.php">About Us</a></li>
                     <li><a href="contact.html">Contact</a></li>
                     <li><a href="terms.html">Terms & Conditions</a></li>
                 </ul>

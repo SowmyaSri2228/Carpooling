@@ -255,7 +255,7 @@ header {
                 <li><a href="howitworks.php">How-it-works</a></li>
                 <li><a href="features.php">Features</a></li>
                 <li><a href="about.php">About</a></li>
-                <li><a href="../cars.html">BookRide</a></li>
+                <li><a href="takeride.html">BookRide</a></li>
                 <li><a href="offerride.php">OfferRide</a></li>
             </ul>
         </nav>
@@ -357,7 +357,7 @@ header {
           <h4>Quick Links</h4>
           <ul>
             <li><a href="index.php">Home</a></li>
-            <li><a href="about.html">About Us</a></li>
+            <li><a href="about.php">About Us</a></li>
             <li><a href="contact.html">Contact</a></li>
             <li><a href="terms.html">Terms & Conditions</a></li>
           </ul>

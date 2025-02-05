@@ -1,5 +1,5 @@
 <?php
-session_start(); // Start session
+session_start();
 
 $isLoggedIn = isset($_SESSION['user_id']);
 ?>
@@ -276,7 +276,7 @@ section:hover {
                 <li><a href="howitworks.php">How-it-works</a></li>
                 <li><a href="features.php">Features</a></li>
                 <li><a href="about.php">About</a></li>
-                <li><a href="../cars.html">BookRide</a></li>
+                <li><a href="takeride.php">BookRide</a></li>
                 <li><a href="offerride.php">OfferRide</a></li>
             </ul>
         </nav>

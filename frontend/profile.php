@@ -1,9 +1,9 @@
-<?php
-session_start(); // Start the session
 
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+<?php
+session_start(); // Start session
+
+$isLoggedIn = isset($_SESSION['user_id']);
+
 
 if (!isset($_SESSION['user_id'])) {
     // If the user is not logged in, redirect to signin page
@@ -42,30 +42,34 @@ $conn->close();
     <link rel="stylesheet" href="profile.css"> 
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <img src="../images/logo.png" width="250" alt="icon">
-        </div>
-        <nav class="navigation">
+<header>
+    <div class="logo">
+        <img src="../images/logo.png" width="250" alt="icon">
+    </div>
+    <div class="navigation">
+        <nav id="navigation-for-links">
             <ul class="links">
                 <li><a href="index.php">Home</a></li>
                 <li><a href="howitworks.php">How-it-works</a></li>
                 <li><a href="features.php">Features</a></li>
                 <li><a href="about.php">About</a></li>
-                <li><a href="../cars.html">BookRide</a></li>
+                <li><a href="takeride.html">BookRide</a></li>
                 <li><a href="offerride.php">OfferRide</a></li>
             </ul>
         </nav>
-        <div class="user-account">
-            <?php if(isset($_SESSION['user_id'])): ?>
-                <a href="profile.php">User Profile</a>
-                <a href="logout.php">Logout</a> 
-            <?php else: ?>
-                <a href="signin.html">Sign In</a>
-            <?php endif; ?>
-            <img src="https://cdn-thumbs.imagevenue.com/db/66/38/ME19YZ3O_t.png" alt="CARLOGO.png"/>
-        </div>
-    </header>
+
+        
+    </div>
+    <div class="user-account">
+        <?php if($isLoggedIn): ?>
+            <a href="profile.php">User Profile</a>
+            <a href="logout.php">Logout</a> 
+        <?php else: ?>
+            <a href="signin.html">Sign In</a>
+        <?php endif; ?>
+        <img src="https://cdn-thumbs.imagevenue.com/db/66/38/ME19YZ3O_t.png" alt="CARLOGO.png"/>
+    </div>
+</header>
 
     <div class="profile-container">
         <h2>User Profile</h2>
