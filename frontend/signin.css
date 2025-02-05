@@ -5,6 +5,13 @@
     font-family: 'Roboto', 'sans-serif';
 }
 
+body{
+    background:url("../images/signup.jpg") no-repeat;
+    background-size: cover;
+    background-position: center;
+    animation: animateBg 7s linear infinite;
+}
+
 section {
     display: flex;
     justify-content: center;
