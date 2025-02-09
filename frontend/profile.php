@@ -1,9 +1,7 @@
-
 <?php
 session_start(); // Start session
 
 $isLoggedIn = isset($_SESSION['user_id']);
-
 
 if (!isset($_SESSION['user_id'])) {
     // If the user is not logged in, redirect to signin page
@@ -30,6 +28,40 @@ $stmt->execute();
 $stmt->bind_result($mobile_number, $name, $email);
 $stmt->fetch();
 $stmt->close();
+
+// Fetch rides offered by the user
+$rides_offered = [];
+$stmt = $conn->prepare("SELECT id, start_location, end_location, ride_date FROM rides WHERE user_id = ?");
+$stmt->bind_param("i", $user_id);
+$stmt->execute();
+$result = $stmt->get_result();
+while ($row = $result->fetch_assoc()) {
+    $rides_offered[] = $row;
+}
+$stmt->close();
+
+// Fetch rides taken by the user
+$rides_taken = [];
+$stmt = $conn->prepare("SELECT r.id, r.start_location, r.end_location, r.ride_date FROM rides r JOIN bookings b ON r.id = b.ride_id WHERE b.user_id = ?");
+$stmt->bind_param("i", $user_id);
+$stmt->execute();
+$result = $stmt->get_result();
+while ($row = $result->fetch_assoc()) {
+    $rides_taken[] = $row;
+}
+$stmt->close();
+
+// Fetch user reviews
+$user_reviews = [];
+$stmt = $conn->prepare("SELECT reviewer_name, review_text, rating FROM reviews WHERE user_id = ?");
+$stmt->bind_param("i", $user_id);
+$stmt->execute();
+$result = $stmt->get_result();
+while ($row = $result->fetch_assoc()) {
+    $user_reviews[] = $row;
+}
+$stmt->close();
+
 $conn->close();
 ?>
 
@@ -57,8 +89,6 @@ $conn->close();
                 <li><a href="offerride.php">OfferRide</a></li>
             </ul>
         </nav>
-
-        
     </div>
     <div class="user-account">
         <?php if($isLoggedIn): ?>
@@ -84,6 +114,57 @@ $conn->close();
 
             <label>Mobile Number:</label>
             <p><?php echo htmlspecialchars($mobile_number); ?></p>
+        </div>
+
+        <div class="rides-section">
+            <h3>Rides Offered</h3>
+            <?php if (count($rides_offered) > 0): ?>
+                <ul>
+                    <?php foreach ($rides_offered as $ride): ?>
+                        <li>
+                            <strong>From:</strong> <?php echo htmlspecialchars($ride['start_location']); ?> <br>
+                            <strong>To:</strong> <?php echo htmlspecialchars($ride['end_location']); ?> <br>
+                            <strong>Date:</strong> <?php echo htmlspecialchars($ride['ride_date']); ?>
+                        </li>
+                    <?php endforeach; ?>
+                </ul>
+            <?php else: ?>
+                <p>No rides offered yet.</p>
+            <?php endif; ?>
+        </div>
+
+        <div class="rides-section">
+            <h3>Rides Taken</h3>
+            <?php if (count($rides_taken) > 0): ?>
+                <ul>
+                    <?php foreach ($rides_taken as $ride): ?>
+                        <li>
+                            <strong>From:</strong> <?php echo htmlspecialchars($ride['start_location']); ?> <br>
+                            <strong>To:</strong> <?php echo htmlspecialchars($ride['end_location']); ?> <br>
+                            <strong>Date:</strong> <?php echo htmlspecialchars($ride['ride_date']); ?>
+                        </li>
+                    <?php endforeach; ?>
+                </ul>
+            <?php else: ?>
+                <p>No rides taken yet.</p>
+            <?php endif; ?>
+        </div>
+
+        <div class="reviews-section">
+            <h3>User Reviews</h3>
+            <?php if (count($user_reviews) > 0): ?>
+                <ul>
+                    <?php foreach ($user_reviews as $review): ?>
+                        <li>
+                            <strong>Reviewer:</strong> <?php echo htmlspecialchars($review['reviewer_name']); ?> <br>
+                            <strong>Rating:</strong> <?php echo htmlspecialchars($review['rating']); ?> <br>
+                            <strong>Review:</strong> <?php echo htmlspecialchars($review['review_text']); ?>
+                        </li>
+                    <?php endforeach; ?>
+                </ul>
+            <?php else: ?>
+                <p>No reviews yet.</p>
+            <?php endif; ?>
         </div>
 
         <a href="logout.php" class="logout-btn">Logout</a>
