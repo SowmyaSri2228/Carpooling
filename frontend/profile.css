@@ -79,7 +79,8 @@ header {
     border-radius: 10px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
-    width: 400px;
+    width: 80%;
+    max-width: 800px;
     margin-top: 50px;
 }
 
@@ -110,6 +111,33 @@ header {
     padding: 10px;
     border-radius: 5px;
     font-size: 16px;
+}
+
+.rides-section, .reviews-section {
+    margin-top: 30px;
+    text-align: left;
+}
+
+.rides-section h3, .reviews-section h3 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.rides-section ul, .reviews-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.rides-section li, .reviews-section li {
+    background: #f9f9f9;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.rides-section li strong, .reviews-section li strong {
+    color: #333;
 }
 
 .logout-btn {
@@ -144,91 +172,103 @@ footer {
     background-image: url('https://wallpapercave.com/w/wp11325348.jpg'); 
     background-size: cover;
     background-position: center;
-    
-    
-  }
-  .footer-container {
+}
+
+.footer-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
-  }
-  .footer-logo h3 {
+}
+
+.footer-logo h3 {
     font-size: 24px;
     margin: 0;
-  }
-  .footer-logo p {
+}
+
+.footer-logo p {
     font-size: 14px;
     color: #bbb;
-  }
-  .footer-links {
+}
+
+.footer-links {
     display: flex;
     gap: 40px;
-  }
-  .footer-links div {
+}
+
+.footer-links div {
     font-size: 14px;
-  }
-  .footer-links h4 {
+}
+
+.footer-links h4 {
     font-size: 18px;
     color: #fff;
     margin-bottom: 10px;
-  }
-  .footer-links ul {
+}
+
+.footer-links ul {
     list-style-type: none;
     padding: 0;
-  }
-  .footer-links a {
+}
+
+.footer-links a {
     color: #bbb;
     text-decoration: none;
     display: block;
     margin: 5px 0;
-  }
-  .footer-links a:hover {
+}
+
+.footer-links a:hover {
     color: #fff;
-  }
-  .footer-social {
+}
+
+.footer-social {
     display: flex;
     gap: 20px;
-  }
-  .footer-social a {
+}
+
+.footer-social a {
     color: #bbb;
     text-decoration: none;
-  }
-  .footer-social img {
+}
+
+.footer-social img {
     width: 30px;
     height: 30px;
-  }
-  .footer-social a:hover img {
-    opacity: 0.8;
-  }
+}
 
-  .twitter-icon-wrapper {
+.footer-social a:hover img {
+    opacity: 0.8;
+}
+
+.twitter-icon-wrapper {
     background-color: white;
     border-radius: 50%; 
     padding: 5px;
     display: flex;
     align-items: center;
     justify-content: center;
-  }
-  .twitter-icon-wrapper img {
+}
+
+.twitter-icon-wrapper img {
     width: 20px;
     height: 20px;
-  }
+}
 
- .user-account img{
-   height:90px;
-   width:90px;
-   border-radius:50%;
-  }
+.user-account img {
+    height: 90px;
+    width: 90px;
+    border-radius: 50%;
+}
 
-.footer-baclground-text{
-  position:absolute;
-  top:50%;
-  left:100%;
-  font-size:150px;
-  font-weight:bold;
-  color:rgba(255,255,255,0.6);
-  white-space:nowrap;
-  }
+.footer-background-text {
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    font-size: 150px;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.6);
+    white-space: nowrap;
+}
